@@ -5,6 +5,20 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      floatingActionButton: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+      backgroundColor: Color(0xffD9D9D9),
+      appBar: AppBar(
+        backgroundColor: Color(0xffD9D9D9),
+        title: Text(
+          "May 24,2025",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 24,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ),
+    );
   }
 }
