@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo/Screens/login.dart';
-import 'package:todo/Screens/prepare-3.dart';
 import 'package:todo/Screens/register.dart';
-import 'package:todo/Widgets/arrow-back.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -11,10 +9,7 @@ class Welcome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffD9D9D9),
-      appBar: AppBar(
-        backgroundColor: Color(0xffD9D9D9),
-        leading: ArrowBack(aimArrowBack: ThirdPrepare()),
-      ),
+      appBar: AppBar(backgroundColor: Color(0xffD9D9D9)),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
 
