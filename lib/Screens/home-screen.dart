@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Image.asset(
-                "assets/LetsGo.png",
+                "assets/let'sGo.png",
                 fit: BoxFit.cover,
                 height: 200,
                 width: 200,
