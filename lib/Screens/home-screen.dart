@@ -17,7 +17,9 @@ class HomeScreen extends StatelessWidget {
           }),
         ),
 
-        onPressed: () {},
+        onPressed: () {
+          counter = counter! + 1;
+        },
         icon: Icon(Icons.add, color: Colors.black),
       ),
       backgroundColor: Color(0xffD9D9D9),
