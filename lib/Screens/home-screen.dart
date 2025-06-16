@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
         ),
 
         onPressed: () {
-          counter = counter! + 1;
+          //counter = counter! + 1;
           Navigator.of(
             context,
           ).push(MaterialPageRoute(builder: (context) => AddTask()));
@@ -69,6 +69,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
+
             SizedBox(height: 100),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
