@@ -25,24 +25,26 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Text(
-              "Tasks",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
+        child: Expanded(
+          child: Column(
+            children: [
+              Text(
+                "Tasks",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            Image.asset(
-              "assets/LetsGo.png",
-              fit: BoxFit.cover,
-              height: 200,
-              width: 200,
-            ),
-          ],
+              SizedBox(height: 20),
+              Image.asset(
+                "assets/LetsGo.png",
+                fit: BoxFit.cover,
+                height: 200,
+                width: 200,
+              ),
+            ],
+          ),
         ),
       ),
     );
