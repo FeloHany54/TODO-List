@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todo/Screens/welcome.dart';
-import 'package:todo/Widgets/arrow-back.dart';
 
 class LoginRegister extends StatelessWidget {
   const LoginRegister({
