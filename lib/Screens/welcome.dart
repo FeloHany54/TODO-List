@@ -62,9 +62,9 @@ class Welcome extends StatelessWidget {
             children: [
               MaterialButton(
                 onPressed: () {
-                  Navigator.of(
-                    context,
-                  ).push(MaterialPageRoute(builder: (context) => Login()));
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => Login()),
+                  );
                 },
                 height: 48,
                 minWidth: 327,
@@ -86,9 +86,9 @@ class Welcome extends StatelessWidget {
             children: [
               MaterialButton(
                 onPressed: () {
-                  Navigator.of(
-                    context,
-                  ).push(MaterialPageRoute(builder: (context) => Register()));
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => Register()),
+                  );
                 },
 
                 height: 48,

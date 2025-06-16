@@ -24,10 +24,7 @@ class LoginRegister extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffD9D9D9),
-      appBar: AppBar(
-        backgroundColor: Color(0xffD9D9D9),
-        leading: ArrowBack(aimArrowBack: Welcome()),
-      ),
+
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
