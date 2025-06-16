@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/Screens/addTask.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
@@ -19,6 +20,9 @@ class HomeScreen extends StatelessWidget {
 
         onPressed: () {
           counter = counter! + 1;
+          Navigator.of(
+            context,
+          ).push(MaterialPageRoute(builder: (context) => AddTask()));
         },
         icon: Icon(Icons.add, color: Colors.black),
       ),
