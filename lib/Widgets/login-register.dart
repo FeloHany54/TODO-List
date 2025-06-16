@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todo/Widgets/login&registerData.dart';
 
+// ignore: must_be_immutable
 class LoginRegister extends StatelessWidget {
-  const LoginRegister({
+  LoginRegister({
     super.key,
     required this.aimLink,
     required this.askText,
@@ -18,8 +22,13 @@ class LoginRegister extends StatelessWidget {
   final String askText;
   final String linkText;
   final Widget aimLink;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final login = Provider.of<LoginRegisterData>(context);
+    login.userDataLogin(passwordController, emailController);
     return Scaffold(
       backgroundColor: Color(0xffD9D9D9),
 
@@ -39,7 +48,7 @@ class LoginRegister extends StatelessWidget {
             SizedBox(height: 50),
             ListTile(
               title: Text(
-                "Username",
+                "Username / Email",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -47,13 +56,13 @@ class LoginRegister extends StatelessWidget {
                 ),
               ),
               subtitle: TextField(
-                controller: TextEditingController(),
+                controller: emailController,
                 cursorColor: Colors.black,
                 cursorErrorColor: Colors.red,
                 cursorWidth: 2,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                  hintText: "Username",
+                  hintText: "Username / Email",
                   hoverColor: Colors.grey,
                   counterStyle: TextStyle(color: Colors.black),
                   focusColor: Colors.black,
@@ -80,7 +89,7 @@ class LoginRegister extends StatelessWidget {
                 ),
               ),
               subtitle: TextField(
-                controller: TextEditingController(),
+                controller: passwordController,
                 cursorColor: Colors.black,
                 cursorErrorColor: Colors.red,
                 cursorWidth: 2,
