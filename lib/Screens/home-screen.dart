@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo/Screens/addTask.dart';
+import 'package:todo/Screens/profile.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
@@ -34,7 +35,11 @@ class HomeScreen extends StatelessWidget {
             child: CircleAvatar(
               backgroundColor: Colors.black,
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(
+                    context,
+                  ).push(MaterialPageRoute(builder: (context) => Profile()));
+                },
                 icon: Icon(Icons.person, color: Color(0xffD9D9D9)),
               ),
             ),

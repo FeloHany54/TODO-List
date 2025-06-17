@@ -1,26 +1,39 @@
+import 'dart:developer';
+
+import 'package:flutter/material.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginRegisterData {
-  String? passwordController;
-  String? confirmPasswordController;
-  String? emailController;
-
-  userDataLogin(passwordController, emailController) async {
-    final SharedPreferences password = await SharedPreferences.getInstance();
-    final SharedPreferences email = await SharedPreferences.getInstance();
-
-    password.setString("Password", passwordController);
-    email.setString("Email", emailController);
+class LoginRegisterData extends ChangeNotifier {
+  Future<void> userEmail(String email) async {
+    final SharedPreferences user = await SharedPreferences.getInstance();
+    user.setString("Email", email);
+    notifyListeners();
   }
 
-  userDataRegister(
-    confirmPasswordController,
-    passwordController,
-    emailController,
-  ) async {
-    userDataLogin(passwordController, emailController);
-    final SharedPreferences confirmPassword =
-        await SharedPreferences.getInstance();
-    confirmPassword.setString("Password", confirmPasswordController);
+  Future<void> userGetEmail() async {
+    final user = await SharedPreferences.getInstance();
+    String em = user.getString("Email") ?? " ???@gmail.com";
+    log(em);
+    notifyListeners();
+  }
+
+  Future<void> userPassword(String password) async {
+    final SharedPreferences user = await SharedPreferences.getInstance();
+    user.setString("Password", password);
+    notifyListeners();
+  }
+
+  Future<void> userGetPassword() async {
+    final user = await SharedPreferences.getInstance();
+    String pass = user.getString("Password") ?? "???????";
+    log(pass);
+    notifyListeners();
+  }
+
+  Future<void> userConfirmPassword(String confirmPassword) async {
+    final SharedPreferences user = await SharedPreferences.getInstance();
+    user.setString("Password", confirmPassword);
+    notifyListeners();
   }
 }

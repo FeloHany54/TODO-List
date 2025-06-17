@@ -1,25 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:todo/Screens/home-screen.dart';
 import 'package:todo/Screens/login.dart';
-import 'package:todo/Widgets/login&registerData.dart';
 import 'package:todo/Widgets/login-register.dart';
 
 // ignore: must_be_immutable
 class Register extends StatelessWidget {
   Register({super.key});
 
+  //final login = Provider.of<LoginRegister>(context);
+
   TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final register = Provider.of<LoginRegisterData>(context);
-    final login = Provider.of<LoginRegister>(context);
-    register.userDataRegister(
-      confirmPasswordController,
-      login.passwordController,
-      login.emailController,
-    );
     return LoginRegister(
       aimLink: Login(),
       askText: "Already have an account?",

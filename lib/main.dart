@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:todo/Screens/splash-screen.dart';
 import 'package:provider/provider.dart';
+import 'package:todo/Screens/splash-screen.dart';
+import 'package:todo/Widgets/login&registerData.dart';
 
 void main() {
-  runApp(const TODO());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => LoginRegisterData()),
+      ],
+      child: const TODO(),
+    ),
+  );
 }
 
 class TODO extends StatelessWidget {

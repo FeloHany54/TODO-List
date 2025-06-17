@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo/Screens/register.dart';
 import 'package:todo/Widgets/login&registerData.dart';
 
 // ignore: must_be_immutable
@@ -27,7 +30,8 @@ class LoginRegister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final login = Provider.of<LoginRegisterData>(context);
-    login.userDataLogin(passwordController, emailController);
+    final register = Provider.of<Register>(context);
+
     return Scaffold(
       backgroundColor: Color(0xffD9D9D9),
 
@@ -68,7 +72,7 @@ class LoginRegister extends StatelessWidget {
 
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(4),
-                    gapPadding: 10,
+                    gapPadding: 30,
                     borderSide: BorderSide(
                       color: Colors.black,
                       style: BorderStyle.solid,
@@ -94,11 +98,7 @@ class LoginRegister extends StatelessWidget {
                 cursorWidth: 2,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                  hintText: "Password",
-                  hoverColor: Colors.grey,
-                  counterStyle: TextStyle(color: Colors.black),
-                  focusColor: Colors.black,
-
+                  hintText: "Password ",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(4),
                     gapPadding: 10,
@@ -116,6 +116,11 @@ class LoginRegister extends StatelessWidget {
             SizedBox(height: 40),
             MaterialButton(
               onPressed: () {
+                login.userEmail(emailController.text);
+                login.userPassword(passwordController.text);
+                login.userConfirmPassword(
+                  register.confirmPasswordController.text,
+                );
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(builder: (context) => buttomAim),
                 );
