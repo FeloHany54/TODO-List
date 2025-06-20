@@ -1,7 +1,8 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todo/Screens/home-screen.dart';
 import 'package:todo/Screens/register.dart';
 import 'package:todo/Widgets/login&registerData.dart';
 
@@ -11,7 +12,6 @@ class LoginRegister extends StatelessWidget {
     super.key,
     required this.aimLink,
     required this.askText,
-    required this.buttomAim,
     required this.screenTitle,
     required this.buttomText,
     this.confirmPass,
@@ -20,17 +20,27 @@ class LoginRegister extends StatelessWidget {
   final String screenTitle;
   final Widget? confirmPass;
   final String buttomText;
-  final Widget buttomAim;
   final String askText;
   final String linkText;
   final Widget aimLink;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  Future<void> userEmail(String email) async {
+    final SharedPreferences user = await SharedPreferences.getInstance();
+    user.setString("Email", email);
+  }
+
+  Future<void> userPassword(String password) async {
+    final SharedPreferences user = await SharedPreferences.getInstance();
+    user.setString("Password", password);
+  }
+
   @override
   Widget build(BuildContext context) {
-    final login = Provider.of<LoginRegisterData>(context);
-    final register = Provider.of<Register>(context);
+    //final login = Provider.of<LoginRegisterData>(context);
+
+    //Register? register;
 
     return Scaffold(
       backgroundColor: Color(0xffD9D9D9),
@@ -115,14 +125,12 @@ class LoginRegister extends StatelessWidget {
 
             SizedBox(height: 40),
             MaterialButton(
-              onPressed: () {
-                login.userEmail(emailController.text);
-                login.userPassword(passwordController.text);
-                login.userConfirmPassword(
-                  register.confirmPasswordController.text,
-                );
+              onPressed: () async {
+                userEmail(emailController.text);
+                userPassword(passwordController.text);
+                if (buttomText == "Register") {}
                 Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => buttomAim),
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
                 );
               },
               color: Color(0xff8687E7),
