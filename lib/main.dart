@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:todo/Screens/splash-screen.dart';
 import 'package:todo/Widgets/login&registerData.dart';
 import 'package:todo/Widgets/prfileData.dart';
+import 'package:todo/Widgets/user_Model.dart';
 
 void main() {
   runApp(
@@ -10,6 +11,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (context) => LoginRegisterData()),
         ChangeNotifierProvider(create: (context) => PrfileData()),
+        ChangeNotifierProvider(create: (context) => UserModel()),
       ],
       child: const TODO(),
     ),

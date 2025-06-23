@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo/Screens/home-screen.dart';
 import 'package:todo/Screens/register.dart';
-import 'package:todo/Widgets/login&registerData.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
@@ -11,7 +9,6 @@ class Login extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    final userdata = Provider.of<LoginRegisterData>(context);
     return Scaffold(
       backgroundColor: Color(0xffD9D9D9),
       appBar: AppBar(

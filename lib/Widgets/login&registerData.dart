@@ -1,10 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:todo/Screens/profile.dart';
-import 'package:todo/Widgets/prfileData.dart';
 
 class LoginRegisterData extends ChangeNotifier {
   // Future<void> userEmail(String email) async {
