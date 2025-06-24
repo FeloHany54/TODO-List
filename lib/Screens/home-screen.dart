@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
               backgroundColor: Colors.black,
               child: IconButton(
                 onPressed: () {
-                  Navigator.of(context).push(
+                  Navigator.of(context).pushReplacement(
                     MaterialPageRoute(builder: (context) => ProfilePage()),
                   );
                 },

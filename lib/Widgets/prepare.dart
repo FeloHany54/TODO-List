@@ -146,7 +146,7 @@ class Prepare extends StatelessWidget {
                     Spacer(),
                     MaterialButton(
                       onPressed: () {
-                        Navigator.of(context).push(
+                        Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
                             builder: (context) => aimNextWidget,
                           ),
@@ -173,7 +173,7 @@ class Prepare extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.of(context).pop(
+                        Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
                             builder: (context) => aimBackWidget!,
                           ),
@@ -191,7 +191,7 @@ class Prepare extends StatelessWidget {
                     Spacer(),
                     MaterialButton(
                       onPressed: () {
-                        Navigator.of(context).push(
+                        Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
                             builder: (context) => aimNextWidget,
                           ),

@@ -3,10 +3,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo/Screens/home-screen.dart';
 import 'package:todo/Screens/register.dart';
 
+// ignore: must_be_immutable
 class Login extends StatelessWidget {
   Login({super.key});
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,8 +93,10 @@ class Login extends StatelessWidget {
             MaterialButton(
               onPressed: () async {
                 final user = await SharedPreferences.getInstance();
+
                 user.setString("UserName", emailController.text);
                 user.setString("Password", passwordController.text);
+                user.setBool("LoggedIn", true);
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(builder: (context) => HomeScreen()),
                 );
