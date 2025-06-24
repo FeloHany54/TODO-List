@@ -55,11 +55,11 @@ class _ProfilePageState extends State<ProfilePage> {
                                 size: 200,
                               )
                               : ClipOval(
-                                child: Image.file(
+                                child: Image.asset(
                                   height: 200,
                                   width: 200,
                                   fit: BoxFit.cover,
-                                  UserModel.user!.image!,
+                                  "${UserModel.user!.image!}",
                                 ),
                               ),
                     ),
@@ -134,6 +134,7 @@ class _ProfilePageState extends State<ProfilePage> {
               },
             ),
           ),
+          SizedBox(height: 100),
           Text(
             "Email : ${userdata.email}",
             style: TextStyle(color: Colors.black),

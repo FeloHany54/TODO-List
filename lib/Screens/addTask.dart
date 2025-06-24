@@ -95,9 +95,9 @@ class AddTask extends StatelessWidget {
             Spacer(),
             MaterialButton(
               onPressed: () {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
-                );
+                Navigator.of(
+                  context,
+                ).pop(MaterialPageRoute(builder: (context) => HomeScreen()));
               },
               height: 48,
               minWidth: 327,
