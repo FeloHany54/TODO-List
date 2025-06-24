@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/Screens/splash-screen.dart';
 import 'package:todo/Widgets/login&registerData.dart';
 import 'package:todo/Widgets/prfileData.dart';
 import 'package:todo/Widgets/user_Model.dart';
+import 'package:todo/generated/l10n.dart';
 
 void main() {
   runApp(
@@ -24,6 +26,13 @@ class TODO extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
       debugShowCheckedModeBanner: false,
       title: 'TODO',
       theme: ThemeData.light(),
