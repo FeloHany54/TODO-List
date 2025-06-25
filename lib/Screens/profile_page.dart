@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo/Screens/home-screen.dart';
 import 'package:todo/Screens/welcome.dart';
-import 'package:todo/Widgets/arrow-back.dart';
 import 'package:todo/Widgets/options.dart';
 import 'package:todo/Widgets/prfileData.dart';
 import 'package:todo/Widgets/user_Model.dart';
+import 'package:todo/generated/l10n.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -25,7 +25,7 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         backgroundColor: Color(0xffD9D9D9),
         title: Text(
-          "Profile",
+          S.of(context).Profile,
           style: TextStyle(
             color: Colors.black,
             fontSize: 24,
@@ -85,7 +85,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   child: Column(
                                     children: [
                                       Text(
-                                        "Profile",
+                                        S.of(context).Profile,
                                         style: TextStyle(fontSize: 25),
                                       ),
                                       Divider(),
@@ -100,7 +100,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                               );
                                               Navigator.pop(context);
                                             },
-                                            title: "Camera",
+                                            title: S.of(context).Camera,
                                             icon: Icons.camera_alt,
                                           ),
                                           Options(
@@ -110,7 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                               );
                                               Navigator.pop(context);
                                             },
-                                            title: "Gallery",
+                                            title: S.of(context).Gallery,
                                             icon: Icons.image,
                                           ),
                                           if (UserModel.user?.image != null)
@@ -121,7 +121,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 UserModel.removeImage();
                                                 Navigator.pop(context);
                                               },
-                                              title: "Delete",
+                                              title: S.of(context).Delete,
                                               icon: Icons.delete,
                                             ),
                                         ],
@@ -145,11 +145,11 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           SizedBox(height: 100),
           Text(
-            "Email : ${userdata.userGetEmail()}",
+            "${S.of(context).Username} : ${userdata.userGetEmail()}",
             style: TextStyle(color: Colors.black),
           ),
           Text(
-            "Password : ${userdata.userGetPssword()}",
+            "${S.of(context).Password} : ${userdata.userGetPssword()}",
             style: TextStyle(color: Colors.black),
           ),
           Spacer(),
@@ -170,8 +170,58 @@ class _ProfilePageState extends State<ProfilePage> {
             color: Color(0xff8875FF),
             textColor: Colors.white,
             child: Text(
-              "Logout",
+              S.of(context).Logout,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+            ),
+          ),
+          SizedBox(height: 50),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              children: [
+                Text(
+                  "${S.of(context).Language} : ",
+                  style: TextStyle(color: Colors.black, fontSize: 15),
+                ),
+                SizedBox(width: 20),
+                MaterialButton(
+                  onPressed: () async {
+                    final user = await SharedPreferences.getInstance();
+
+                    user.setString("Language", "en");
+                  },
+                  height: 48,
+                  minWidth: 100,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  color: Color(0xff8875FF),
+                  textColor: Colors.white,
+                  child: Text(
+                    "English",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                  ),
+                ),
+                SizedBox(width: 20),
+                MaterialButton(
+                  onPressed: () async {
+                    final user = await SharedPreferences.getInstance();
+
+                    user.setString("Language", "ar");
+                  },
+                  height: 48,
+                  minWidth: 100,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  color: Color(0xff8875FF),
+                  textColor: Colors.white,
+                  child: Text(
+                    "عربي",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                  ),
+                ),
+              ],
             ),
           ),
         ],

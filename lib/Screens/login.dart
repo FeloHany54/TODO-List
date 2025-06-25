@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo/Screens/home-screen.dart';
 import 'package:todo/Screens/register.dart';
+import 'package:todo/generated/l10n.dart';
 
 // ignore: must_be_immutable
 class Login extends StatelessWidget {
@@ -16,7 +17,7 @@ class Login extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xffD9D9D9),
         title: Text(
-          "Login",
+          S.of(context).Login,
           style: TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.w700,
@@ -31,7 +32,7 @@ class Login extends StatelessWidget {
             SizedBox(height: 50),
             ListTile(
               title: Text(
-                "Username / Email",
+                S.of(context).Username,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -45,7 +46,7 @@ class Login extends StatelessWidget {
                 cursorWidth: 2,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                  hintText: "Username / Email",
+                  hintText: S.of(context).Username,
                   hoverColor: Colors.grey,
                   counterStyle: TextStyle(color: Colors.black),
                   focusColor: Colors.black,
@@ -63,7 +64,7 @@ class Login extends StatelessWidget {
             ),
             ListTile(
               title: Text(
-                "Password",
+                S.of(context).Password,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -77,7 +78,7 @@ class Login extends StatelessWidget {
                 cursorWidth: 2,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                  hintText: "Password ",
+                  hintText: S.of(context).Password,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(4),
                     gapPadding: 10,
@@ -109,7 +110,7 @@ class Login extends StatelessWidget {
               color: Color(0xff8875FF),
               textColor: Colors.white,
               child: Text(
-                "Login",
+                S.of(context).Login,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
               ),
             ),
@@ -118,7 +119,7 @@ class Login extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Don’t have an account?",
+                  S.of(context).loginAsk,
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
@@ -132,7 +133,7 @@ class Login extends StatelessWidget {
                     );
                   },
                   child: Text(
-                    "Register",
+                    S.of(context).Register,
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,

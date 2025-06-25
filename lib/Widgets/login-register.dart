@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo/Screens/home-screen.dart';
+import 'package:todo/generated/l10n.dart';
 
 // ignore: must_be_immutable
 class LoginRegister extends StatelessWidget {
@@ -24,12 +25,12 @@ class LoginRegister extends StatelessWidget {
   TextEditingController passwordController = TextEditingController();
 
   Future<void> userEmail(String email) async {
-    final SharedPreferences user = await SharedPreferences.getInstance();
+    final user = await SharedPreferences.getInstance();
     user.setString("Email", email);
   }
 
   Future<void> userPassword(String password) async {
-    final SharedPreferences user = await SharedPreferences.getInstance();
+    final user = await SharedPreferences.getInstance();
     user.setString("Password", password);
   }
 
@@ -58,7 +59,7 @@ class LoginRegister extends StatelessWidget {
             SizedBox(height: 50),
             ListTile(
               title: Text(
-                "Username / Email",
+                S.of(context).Username,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -72,7 +73,7 @@ class LoginRegister extends StatelessWidget {
                 cursorWidth: 2,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                  hintText: "Username / Email",
+                  hintText: S.of(context).Username,
                   hoverColor: Colors.grey,
                   counterStyle: TextStyle(color: Colors.black),
                   focusColor: Colors.black,
@@ -91,7 +92,7 @@ class LoginRegister extends StatelessWidget {
             SizedBox(height: 20),
             ListTile(
               title: Text(
-                "Password",
+                S.of(context).Password,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -105,7 +106,7 @@ class LoginRegister extends StatelessWidget {
                 cursorWidth: 2,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                  hintText: "Password ",
+                  hintText: S.of(context).Password,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(4),
                     gapPadding: 10,
@@ -125,7 +126,7 @@ class LoginRegister extends StatelessWidget {
               onPressed: () async {
                 userEmail(emailController.text);
                 userPassword(passwordController.text);
-                if (buttomText == "Register") {}
+                if (buttomText == S.of(context).Register) {}
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(builder: (context) => HomeScreen()),
                 );

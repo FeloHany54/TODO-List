@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/generated/l10n.dart';
 
 class Usernamefield extends StatelessWidget {
   Usernamefield({super.key});
@@ -7,7 +8,7 @@ class Usernamefield extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        "Username / Email",
+        S.of(context).Username,
         style: TextStyle(
           color: Colors.black,
           fontSize: 16,
@@ -21,7 +22,7 @@ class Usernamefield extends StatelessWidget {
         cursorWidth: 2,
         style: TextStyle(color: Colors.black),
         decoration: InputDecoration(
-          hintText: "Username / Email",
+          hintText: S.of(context).Username,
           hoverColor: Colors.grey,
           counterStyle: TextStyle(color: Colors.black),
           focusColor: Colors.black,

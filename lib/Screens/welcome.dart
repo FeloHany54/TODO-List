@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/Screens/login.dart';
 import 'package:todo/Screens/register.dart';
+import 'package:todo/generated/l10n.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -19,7 +20,7 @@ class Welcome extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Welcome to UpTodo",
+                S.of(context).Welcome,
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w700,
@@ -33,7 +34,7 @@ class Welcome extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Please login to your account or create",
+                S.of(context).WelcomeDescription1,
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
@@ -47,7 +48,7 @@ class Welcome extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "new account to continue",
+                S.of(context).WelcomeDescription2,
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
@@ -74,7 +75,7 @@ class Welcome extends StatelessWidget {
                 color: Color(0xff8875FF),
                 textColor: Colors.white,
                 child: Text(
-                  "LOGIN",
+                  S.of(context).Login,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                 ),
               ),
@@ -100,7 +101,7 @@ class Welcome extends StatelessWidget {
                 color: Color(0xffD9D9D9),
                 textColor: Color(0xff0080FF),
                 child: Text(
-                  "CREATE ACCOUNT",
+                  S.of(context).CreateAccount,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                 ),
               ),

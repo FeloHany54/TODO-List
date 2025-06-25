@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/Screens/home-screen.dart';
 import 'package:todo/Widgets/arrow-back.dart';
+import 'package:todo/generated/l10n.dart';
 
 // ignore: must_be_immutable
 class AddTask extends StatelessWidget {
@@ -15,7 +16,7 @@ class AddTask extends StatelessWidget {
         backgroundColor: Color(0xffD9D9D9),
         leading: ArrowBack(aimArrowBack: HomeScreen()),
         title: Text(
-          "Your Task ",
+          S.of(context).addTaskTitle,
           style: TextStyle(
             color: Colors.black,
             fontSize: 24,
@@ -29,7 +30,7 @@ class AddTask extends StatelessWidget {
           children: [
             ListTile(
               title: Text(
-                "Your Task",
+                S.of(context).addTaskTitle,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -43,7 +44,7 @@ class AddTask extends StatelessWidget {
                 cursorWidth: 2,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                  hintText: "Task",
+                  hintText: S.of(context).addTaskTitle,
                   hoverColor: Colors.grey,
                   counterStyle: TextStyle(color: Colors.black),
                   focusColor: Colors.black,
@@ -62,7 +63,7 @@ class AddTask extends StatelessWidget {
             SizedBox(height: 50),
             ListTile(
               title: Text(
-                "Deadline",
+                S.of(context).addTaskDeadline,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -76,7 +77,7 @@ class AddTask extends StatelessWidget {
                 cursorWidth: 2,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                  hintText: "Deadline",
+                  hintText: S.of(context).addTaskDeadline,
                   hoverColor: Colors.grey,
                   counterStyle: TextStyle(color: Colors.black),
                   focusColor: Colors.black,
@@ -107,7 +108,7 @@ class AddTask extends StatelessWidget {
               color: Color(0xff8875FF),
               textColor: Colors.white,
               child: Text(
-                "Add Task",
+                S.of(context).addTaskButtom,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
               ),
             ),

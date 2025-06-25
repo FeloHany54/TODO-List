@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/Screens/welcome.dart';
+import 'package:todo/generated/l10n.dart';
+import 'package:intl/intl.dart';
 
 class Prepare extends StatelessWidget {
   const Prepare({
@@ -35,6 +37,10 @@ class Prepare extends StatelessWidget {
   final double imageHeight;
   final double imageWidth;
   final int pageNum;
+  bool isArabic() {
+    return Intl.getCurrentLocale() == "ar";
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +48,11 @@ class Prepare extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xffD9D9D9),
         leading: Padding(
-          padding: const EdgeInsets.only(left: 24, top: 14),
+          padding: EdgeInsets.only(
+            left: isArabic() ? 0 : 24,
+            right: isArabic() ? 24 : 0,
+            top: 14,
+          ),
           child: InkWell(
             onTap: () {
               Navigator.of(context).pushReplacement(
@@ -50,7 +60,7 @@ class Prepare extends StatelessWidget {
               );
             },
             child: Text(
-              "Skip",
+              S.of(context).Skip,
               style: TextStyle(
                 color: Color(0xff0080FF),
                 fontSize: 16,
@@ -180,7 +190,7 @@ class Prepare extends StatelessWidget {
                         );
                       },
                       child: Text(
-                        "BACK",
+                        S.of(context).BACK,
                         style: TextStyle(
                           color: Color(0xff0080FF),
                           fontSize: 16,

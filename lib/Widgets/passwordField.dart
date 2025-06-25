@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/generated/l10n.dart';
 
 class Passwordfield extends StatelessWidget {
   Passwordfield({super.key});
@@ -7,7 +8,7 @@ class Passwordfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        "Password",
+        S.of(context).Password,
         style: TextStyle(
           color: Colors.black,
           fontSize: 16,
@@ -21,7 +22,7 @@ class Passwordfield extends StatelessWidget {
         cursorWidth: 2,
         style: TextStyle(color: Colors.black),
         decoration: InputDecoration(
-          hintText: "Password ",
+          hintText: S.of(context).Password,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(4),
             gapPadding: 10,

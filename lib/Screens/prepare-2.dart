@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo/Screens/prepare-1.dart';
 import 'package:todo/Screens/prepare-3.dart';
 import 'package:todo/Widgets/prepare.dart';
+import 'package:todo/generated/l10n.dart';
 
 class SecondPrepare extends StatelessWidget {
   const SecondPrepare({super.key});
@@ -11,17 +12,17 @@ class SecondPrepare extends StatelessWidget {
     return Prepare(
       aimNextWidget: ThirdPrepare(),
       buttomHeight: 48,
-      buttomText: "NEXT",
+      buttomText: S.of(context).PrepareNext,
       buttomWidth: 90,
-      descriptionText1: "In Uptodo  you can create your",
-      descriptionText2: "personalized routine to stay productive",
+      descriptionText1: S.of(context).SecondPrepareDescription1,
+      descriptionText2: S.of(context).SecondPrepareDescription2,
       firstColor: Colors.black,
       secondColor: Color(0xff0080FF),
       thirdColor: Colors.black,
       image: "assets/prepare2.png",
       imageHeight: 296,
       imageWidth: 271,
-      pageTitle: "Create daily routine",
+      pageTitle: S.of(context).SecondPrepareTitle,
       aimBackWidget: FirstPrepare(),
       pageNum: 2,
     );

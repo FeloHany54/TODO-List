@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo/Screens/splash-screen.dart';
 import 'package:todo/Widgets/login&registerData.dart';
 import 'package:todo/Widgets/prfileData.dart';
@@ -25,7 +26,14 @@ class TODO extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String? lan = "en";
+    Future<void> language() async {
+      final user = await SharedPreferences.getInstance();
+      lan = user.getString("Language");
+    }
+
     return MaterialApp(
+      locale: Locale(lan!),
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,

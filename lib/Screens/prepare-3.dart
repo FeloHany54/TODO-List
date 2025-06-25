@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo/Screens/prepare-2.dart';
 import 'package:todo/Screens/welcome.dart';
 import 'package:todo/Widgets/prepare.dart';
+import 'package:todo/generated/l10n.dart';
 
 class ThirdPrepare extends StatelessWidget {
   const ThirdPrepare({super.key});
@@ -12,10 +13,10 @@ class ThirdPrepare extends StatelessWidget {
       aimNextWidget: Welcome(),
       buttomHeight: 48,
       buttomWidth: 150,
-      buttomText: "GET STARTED",
-      descriptionText1: "You can organize your daily tasks by ",
-      descriptionText2: "adding your tasks into separate categories",
-      pageTitle: "Orgonaize your tasks",
+      buttomText: S.of(context).GetStart,
+      descriptionText1: S.of(context).ThirdPrepareDescription1,
+      descriptionText2: S.of(context).ThirdPrepareDescription2,
+      pageTitle: S.of(context).ThirdPrepareTitle,
       firstColor: Colors.black,
       secondColor: Colors.black,
       thirdColor: Color(0xff0080FF),

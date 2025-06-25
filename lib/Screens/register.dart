@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/Widgets/passwordField.dart';
 import 'package:todo/Widgets/usernameField.dart';
+import 'package:todo/generated/l10n.dart';
 
 // ignore: must_be_immutable
 class Register extends StatelessWidget {
@@ -17,7 +18,7 @@ class Register extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xffD9D9D9),
         title: Text(
-          "Register",
+          S.of(context).Register,
           style: TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.w700,

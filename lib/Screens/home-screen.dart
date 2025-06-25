@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo/Screens/addTask.dart';
 
 import 'package:todo/Screens/profile_page.dart';
+import 'package:todo/generated/l10n.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
@@ -21,7 +22,6 @@ class HomeScreen extends StatelessWidget {
         ),
 
         onPressed: () {
-          //counter = counter! + 1;
           Navigator.of(
             context,
           ).push(MaterialPageRoute(builder: (context) => AddTask()));
@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
         ],
         backgroundColor: Color(0xffD9D9D9),
         title: Text(
-          "June 16,2025",
+          S.of(context).homeScreenTitle,
           style: TextStyle(
             color: Colors.black,
             fontSize: 24,
@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Tasks",
+                  S.of(context).homeScreenTasks,
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -91,9 +91,7 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "To Add Your Task Press "
-                  "  +  "
-                  " ",
+                  S.of(context).homeScreenAddTask,
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
