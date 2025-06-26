@@ -50,7 +50,7 @@ class Prepare extends StatelessWidget {
         leading: Padding(
           padding: EdgeInsets.only(
             left: isArabic() ? 0 : 24,
-            right: isArabic() ? 24 : 0,
+            right: isArabic() ? 15 : 0,
             top: 14,
           ),
           child: InkWell(
@@ -147,10 +147,10 @@ class Prepare extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          Spacer(),
           pageNum == 1
               ? Padding(
-                padding: const EdgeInsets.only(right: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Row(
                   children: [
                     Spacer(),
@@ -178,7 +178,7 @@ class Prepare extends StatelessWidget {
                 ),
               )
               : Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Row(
                   children: [
                     InkWell(
@@ -222,6 +222,7 @@ class Prepare extends StatelessWidget {
                   ],
                 ),
               ),
+          SizedBox(height: 10),
         ],
       ),
     );

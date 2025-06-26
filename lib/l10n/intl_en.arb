@@ -32,7 +32,9 @@
     "WelcomeDescription1" : "Please login to your account or create",
     "WelcomeDescription2" : "new account to continue",
     "Welcome" : "Welcome to UpTodo",
-    "Language" : "Language"
+    "Language" : "Language",
+    "confirmpass" :"confirm Password",
+    "RegisterAsk" : "already have an account ?"
                   
 
 

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:todo/Widgets/passwordField.dart';
-import 'package:todo/Widgets/usernameField.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todo/Screens/home-screen.dart';
 import 'package:todo/generated/l10n.dart';
 
 // ignore: must_be_immutable
 class Register extends StatelessWidget {
   Register({super.key});
 
-  //final login = Provider.of<LoginRegister>(context);
-
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
 
   @override
@@ -29,51 +29,153 @@ class Register extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
-          children: [SizedBox(height: 50), Usernamefield(), Passwordfield()],
+          children: [
+            SizedBox(height: 50),
+            ListTile(
+              title: Text(
+                S.of(context).Username,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              subtitle: TextField(
+                controller: emailController,
+                cursorColor: Colors.black,
+                cursorErrorColor: Colors.red,
+                cursorWidth: 2,
+                style: TextStyle(color: Colors.black),
+                decoration: InputDecoration(
+                  hintText: S.of(context).Username,
+                  hoverColor: Colors.grey,
+                  counterStyle: TextStyle(color: Colors.black),
+                  focusColor: Colors.black,
+
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(4),
+                    gapPadding: 30,
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                      style: BorderStyle.solid,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text(
+                S.of(context).Password,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              subtitle: TextField(
+                controller: passwordController,
+                cursorColor: Colors.black,
+                cursorErrorColor: Colors.red,
+                cursorWidth: 2,
+                style: TextStyle(color: Colors.black),
+                decoration: InputDecoration(
+                  hintText: S.of(context).Password,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(4),
+                    gapPadding: 10,
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                      style: BorderStyle.solid,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text(
+                S.of(context).confirmpass,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              subtitle: TextField(
+                controller: confirmPasswordController,
+                cursorColor: Colors.black,
+                cursorErrorColor: Colors.red,
+                cursorWidth: 2,
+                style: TextStyle(color: Colors.black),
+                decoration: InputDecoration(
+                  hintText: S.of(context).confirmpass,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(4),
+                    gapPadding: 10,
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                      style: BorderStyle.solid,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 50),
+            MaterialButton(
+              onPressed: () async {
+                final user = await SharedPreferences.getInstance();
+
+                user.setString("UserName", emailController.text);
+                user.setString("Password", passwordController.text);
+                user.setBool("LoggedIn", true);
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                );
+              },
+              height: 48,
+              minWidth: 327,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+              ),
+              color: Color(0xff8875FF),
+              textColor: Colors.white,
+              child: Text(
+                S.of(context).Register,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+              ),
+            ),
+            Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  S.of(context).RegisterAsk,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey,
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => Register()),
+                    );
+                  },
+                  child: Text(
+                    S.of(context).Login,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+          ],
         ),
       ),
     );
-
-    //   return LoginRegister(
-    //     aimLink: Login(),
-    //     askText: "Already have an account?",
-
-    //     buttomText: "Register",
-    //     linkText: "login",
-    //     screenTitle: "Register",
-    //     confirmPass: ListTile(
-    //       title: Text(
-    //         "Confirm Password",
-    //         style: TextStyle(
-    //           color: Colors.black,
-    //           fontSize: 16,
-    //           fontWeight: FontWeight.w400,
-    //         ),
-    //       ),
-    //       subtitle: TextField(
-    //         controller: confirmPasswordController,
-    //         cursorColor: Colors.black,
-    //         cursorErrorColor: Colors.red,
-    //         cursorWidth: 2,
-    //         style: TextStyle(color: Colors.black),
-    //         decoration: InputDecoration(
-    //           hintText: "Confirm Password",
-    //           hoverColor: Colors.grey,
-    //           counterStyle: TextStyle(color: Colors.black),
-    //           focusColor: Colors.black,
-
-    //           border: OutlineInputBorder(
-    //             borderRadius: BorderRadius.circular(4),
-    //             gapPadding: 10,
-    //             borderSide: BorderSide(
-    //               color: Colors.black,
-    //               style: BorderStyle.solid,
-    //             ),
-    //           ),
-    //         ),
-    //       ),
-    //     ),
-    //   );
-    // }
   }
 }

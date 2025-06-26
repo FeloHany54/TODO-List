@@ -32,5 +32,7 @@
     "WelcomeDescription1" : "من فضلك سجل دخول الى حسابك او انشئ",
     "WelcomeDescription2" : "حساب جديد للأستمرار",
     "Welcome" : "مرحبا في أبتودو",
-    "Language" : "اللغة"
+    "Language" : "اللغة",
+    "confirmpass" :"تأكيد كلمةالمرور",
+    "RegisterAsk" : "تملك حساب بالفعل ؟"
 }

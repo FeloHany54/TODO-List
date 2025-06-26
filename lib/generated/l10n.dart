@@ -308,6 +308,26 @@ class S {
   String get Language {
     return Intl.message('Language', name: 'Language', desc: '', args: []);
   }
+
+  /// `confirm Password`
+  String get confirmpass {
+    return Intl.message(
+      'confirm Password',
+      name: 'confirmpass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `already have an account ?`
+  String get RegisterAsk {
+    return Intl.message(
+      'already have an account ?',
+      name: 'RegisterAsk',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

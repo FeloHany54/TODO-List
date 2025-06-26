@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "PrepareNext": MessageLookupByLibrary.simpleMessage("التالي"),
     "Profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "Register": MessageLookupByLibrary.simpleMessage("حساب جديد"),
+    "RegisterAsk": MessageLookupByLibrary.simpleMessage("تملك حساب بالفعل ؟"),
     "SecondPrepareDescription1": MessageLookupByLibrary.simpleMessage(
       "في أبتودو تستطيع انشاء مهامك",
     ),
@@ -68,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "addTaskButtom": MessageLookupByLibrary.simpleMessage("أضف مهمتك"),
     "addTaskDeadline": MessageLookupByLibrary.simpleMessage("موعد الانتهاء"),
     "addTaskTitle": MessageLookupByLibrary.simpleMessage("مهمتك"),
+    "confirmpass": MessageLookupByLibrary.simpleMessage("تأكيد كلمةالمرور"),
     "homeScreenAddTask": MessageLookupByLibrary.simpleMessage(
       "لأضافة مهمتك اضغط على (+)",
     ),

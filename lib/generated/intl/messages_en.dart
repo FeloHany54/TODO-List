@@ -44,6 +44,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "PrepareNext": MessageLookupByLibrary.simpleMessage("NEXt"),
     "Profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "Register": MessageLookupByLibrary.simpleMessage("Register"),
+    "RegisterAsk": MessageLookupByLibrary.simpleMessage(
+      "already have an account ?",
+    ),
     "SecondPrepareDescription1": MessageLookupByLibrary.simpleMessage(
       "In Uptodo  you can create your Tasks",
     ),
@@ -74,6 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "addTaskButtom": MessageLookupByLibrary.simpleMessage("Add Task"),
     "addTaskDeadline": MessageLookupByLibrary.simpleMessage("Deadline"),
     "addTaskTitle": MessageLookupByLibrary.simpleMessage("Your Task"),
+    "confirmpass": MessageLookupByLibrary.simpleMessage("confirm Password"),
     "homeScreenAddTask": MessageLookupByLibrary.simpleMessage(
       "To Add Your Task Press (+)",
     ),

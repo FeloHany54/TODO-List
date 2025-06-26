@@ -64,11 +64,11 @@ class _ProfilePageState extends State<ProfilePage> {
                                 size: 200,
                               )
                               : ClipOval(
-                                child: Image.asset(
+                                child: Image.file(
                                   height: 200,
                                   width: 200,
                                   fit: BoxFit.cover,
-                                  "${UserModel.user!.image!}",
+                                  UserModel.user!.image!,
                                 ),
                               ),
                     ),
@@ -187,7 +187,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 MaterialButton(
                   onPressed: () async {
                     final user = await SharedPreferences.getInstance();
-
                     user.setString("Language", "en");
                   },
                   height: 48,

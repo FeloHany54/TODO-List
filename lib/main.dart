@@ -26,14 +26,14 @@ class TODO extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String? lan = "en";
-    Future<void> language() async {
+    //String? lan = "en";
+    Future<String> language() async {
       final user = await SharedPreferences.getInstance();
-      lan = user.getString("Language");
+      return "${user.getString("Language")}";
     }
 
     return MaterialApp(
-      locale: Locale(lan!),
+      locale: Locale("ar"),
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
