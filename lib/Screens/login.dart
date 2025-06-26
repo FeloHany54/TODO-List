@@ -95,9 +95,10 @@ class Login extends StatelessWidget {
               onPressed: () async {
                 final user = await SharedPreferences.getInstance();
 
-                user.setString("UserName", emailController.text);
-                user.setString("Password", passwordController.text);
-                user.setBool("LoggedIn", true);
+                await user.setString("UserName", emailController.text);
+                await user.setString("Password", passwordController.text);
+                await user.setBool("LoggedIn", true);
+
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(builder: (context) => HomeScreen()),
                 );

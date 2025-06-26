@@ -145,11 +145,11 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           SizedBox(height: 100),
           Text(
-            "${S.of(context).Username} : ${userdata.userGetEmail()}",
+            "${S.of(context).Username} : ${userdata.email}",
             style: TextStyle(color: Colors.black),
           ),
           Text(
-            "${S.of(context).Password} : ${userdata.userGetPssword()}",
+            "${S.of(context).Password} : ${userdata.password}",
             style: TextStyle(color: Colors.black),
           ),
           Spacer(),
