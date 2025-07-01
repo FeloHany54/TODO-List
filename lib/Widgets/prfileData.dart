@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class PrfileData extends ChangeNotifier {
   String? email;
   String? password;
-  String? lan;
+  //String lan = "en";
 
   Future<void> userGetEmail() async {
     final user = await SharedPreferences.getInstance();
@@ -12,15 +12,15 @@ class PrfileData extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> userGetPssword() async {
+  Future<void> userGetPassword() async {
     final user = await SharedPreferences.getInstance();
     password = user.getString("Password") ?? "???????";
     notifyListeners();
   }
 
-  Future<void> language() async {
-    final user = await SharedPreferences.getInstance();
-    lan = user.getString("Language") ?? "en";
-    notifyListeners();
-  }
+  // Future<void> language() async {
+  //   final user = await SharedPreferences.getInstance();
+  //   lan = user.getString("Language")! ;
+  //   notifyListeners();
+  // }
 }

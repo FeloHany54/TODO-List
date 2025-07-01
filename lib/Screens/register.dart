@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo/Screens/home-screen.dart';
+import 'package:todo/Screens/login.dart';
 import 'package:todo/generated/l10n.dart';
 
 // ignore: must_be_immutable
@@ -158,7 +159,7 @@ class Register extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => Register()),
+                      MaterialPageRoute(builder: (context) => Login()),
                     );
                   },
                   child: Text(

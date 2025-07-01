@@ -187,7 +187,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 MaterialButton(
                   onPressed: () async {
                     final user = await SharedPreferences.getInstance();
-                    await user.setString("Language", "en");
+                    await user.setBool("Language", false);
                   },
                   height: 48,
                   minWidth: 100,
@@ -206,7 +206,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   onPressed: () async {
                     final user = await SharedPreferences.getInstance();
 
-                    await user.setString("Language", "ar");
+                    await user.setBool("Language", true);
                   },
                   height: 48,
                   minWidth: 100,
