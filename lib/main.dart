@@ -15,7 +15,7 @@ void main() {
         ChangeNotifierProvider(create: (context) => PrfileData()),
         ChangeNotifierProvider(create: (context) => UserModel()),
       ],
-      child: const TODO(),
+      child: TODO(),
     ),
   );
 }
@@ -27,7 +27,7 @@ class TODO extends StatelessWidget {
   Widget build(BuildContext context) {
     final userlan = Provider.of<PrfileData>(context);
     return MaterialApp(
-      locale: Locale("${userlan.lan}"),
+      locale: userlan.lan == "ar" ? Locale("ar") : Locale("en"),
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,

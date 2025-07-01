@@ -20,7 +20,7 @@ class PrfileData extends ChangeNotifier {
 
   Future<void> language() async {
     final user = await SharedPreferences.getInstance();
-    lan = user.getString("Language");
+    lan = user.getString("Language") ?? "en";
     notifyListeners();
   }
 }
