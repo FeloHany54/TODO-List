@@ -47,7 +47,7 @@ class Login extends StatelessWidget {
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                   hintText: S.of(context).Username,
-                  hoverColor: Colors.grey,
+                  hoverColor: Colors.white60,
                   counterStyle: TextStyle(color: Colors.black),
                   focusColor: Colors.black,
 
@@ -150,4 +150,6 @@ class Login extends StatelessWidget {
       ),
     );
   }
+
+
 }

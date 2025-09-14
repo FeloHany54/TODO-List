@@ -3,10 +3,13 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo/Screens/splash-screen.dart';
+import 'package:todo/Widgets/light_theme.dart';
 import 'package:todo/Widgets/login&registerData.dart';
 import 'package:todo/Widgets/prfileData.dart';
 import 'package:todo/Widgets/user_Model.dart';
 import 'package:todo/generated/l10n.dart';
+
+import 'Widgets/dark_theme.dart';
 
 void main() {
   runApp(
@@ -34,8 +37,8 @@ class TODO extends StatelessWidget {
     String lan="en";
     isArabic() async {
       final user = await SharedPreferences.getInstance();
-
-      if(user.getBool("Language") == true){return lan = "ar";}
+      setState(){
+      if(user.getBool("Language") == true){return lan = "ar";}}
 
 
     }
@@ -50,8 +53,8 @@ class TODO extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       debugShowCheckedModeBanner: false,
       title: 'TODO',
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      //theme: lightMode,
+      //darkTheme:darkMode,
       home: SplashScreen(),
     );
   }
