@@ -8,10 +8,14 @@ import 'package:todo/Widgets/login&registerData.dart';
 import 'package:todo/Widgets/prfileData.dart';
 import 'package:todo/Widgets/user_Model.dart';
 import 'package:todo/generated/l10n.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+//import 'package:cloud_firestore/cloud_firestore.dart';
+import 'firebase_options.dart';
 import 'Widgets/dark_theme.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     MultiProvider(
       providers: [
@@ -25,25 +29,24 @@ void main() {
 }
 
 class TODO extends StatelessWidget {
-   const TODO({super.key});
-
-
+  const TODO({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     //final userLanguage = Provider.of<PrfileData>(context);
     //String lan = userLanguage.lan;
-    String lan="en";
+    String lan = "en";
     isArabic() async {
       final user = await SharedPreferences.getInstance();
-      setState(){
-      if(user.getBool("Language") == true){return lan = "ar";}}
-
-
+      setState() {
+        if (user.getBool("Language") == true) {
+          return lan = "ar";
+        }
+      }
     }
+
     return MaterialApp(
-      locale:  Locale(lan) ,
+      locale: Locale(lan),
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,

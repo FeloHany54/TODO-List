@@ -3,13 +3,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo/Screens/home-screen.dart';
 import 'package:todo/Screens/register.dart';
 import 'package:todo/generated/l10n.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 // ignore: must_be_immutable
 class Login extends StatelessWidget {
   Login({super.key});
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  CollectionReference users = FirebaseFirestore.instance.collection('Users');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,9 +95,9 @@ class Login extends StatelessWidget {
             MaterialButton(
               onPressed: () async {
                 final user = await SharedPreferences.getInstance();
-
-                await user.setString("UserName", emailController.text);
-                await user.setString("Password", passwordController.text);
+                addUser(emailController.text, passwordController.text);
+                // await user.setString("UserName", emailController.text);
+                // await user.setString("Password", passwordController.text);
                 await user.setBool("LoggedIn", true);
 
                 Navigator.of(context).pushReplacement(
@@ -151,5 +152,11 @@ class Login extends StatelessWidget {
     );
   }
 
-
+  addUser(String email, String password) async {
+    await users
+        .add({"Email": email, "Password": password})
+        .then((value) => print("User Added"))
+        .catchError((error) => print("Faild to add user : $error"));
+    ;
+  }
 }

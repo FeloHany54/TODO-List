@@ -124,13 +124,26 @@ class Register extends StatelessWidget {
             MaterialButton(
               onPressed: () async {
                 final user = await SharedPreferences.getInstance();
+                if (confirmPasswordController.text != passwordController.text) {
+                  SnackBar(
+                    content: Text(
+                      "This password Don't Match",
+                      style: TextStyle(color: Colors.redAccent, fontSize: 16),
+                    ),
+                  );
+                  // Text(
+                  //   "This password Don't Match",
+                  //   style: TextStyle(color: Colors.redAccent, fontSize: 16),
+                  // );
+                } else {
+                  user.setBool("LoggedIn", true);
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
+                }
 
-                user.setString("UserName", emailController.text);
-                user.setString("Password", passwordController.text);
-                user.setBool("LoggedIn", true);
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
-                );
+                // user.setString("UserName", emailController.text);
+                // user.setString("Password", passwordController.text);
               },
               height: 48,
               minWidth: 327,
